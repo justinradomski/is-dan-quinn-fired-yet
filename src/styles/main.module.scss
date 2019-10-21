@@ -1,0 +1,32 @@
+.main {
+    align-items: center;
+
+    @media screen and (max-width: 800px) {
+        align-items: flex-start;
+    }
+}
+
+.dan-image {
+    display: block;
+    max-width: 100%;
+    width: 420px;
+    position: absolute;
+    bottom: -60px;
+    right: 40px;
+
+    @media screen and (max-width: 800px) {
+        width: 300px;
+        margin: 0 auto;
+        bottom: -40px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+.content {
+
+
+    @media screen and (max-width: 800px) {
+        padding-top: 80px;
+    }
+}

@@ -6,6 +6,8 @@ import BackgroundImage from 'gatsby-background-image'
 import SEO from "../components/seo"
 import "../components/layout.css"
 
+import mainStyles from "../styles/main.module.scss"
+
 const IndexPage = ({ data }) => (
   <BackgroundImage
       Tag="section"
@@ -17,11 +19,11 @@ const IndexPage = ({ data }) => (
           position: `relative`,
           overflow: `hidden`,
           display: `flex`,
-          alignItems:  `center`,
-      }}>
+      }}
+      className={mainStyles.main}>
     <SEO title="No." />
     <div
-        className="content"
+        className={mainStyles.content}
         style={{
             flexBasis: `100%`,
             textAlign: `center`
@@ -44,15 +46,14 @@ const IndexPage = ({ data }) => (
             No.
         </span>
     </div>
-    <Img
-        fluid={data.danImage.childImageSharp.fluid}
-        style={{
-            position: `absolute`,
-            right: 40,
-            bottom: `-60px`,
-            width: 420
-        }}
-        />
+    <div className={mainStyles.danImage}>
+        <Img
+            fluid={data.danImage.childImageSharp.fluid}
+            style={{
+                width: `100%`
+            }}
+            />
+    </div>
   </BackgroundImage>
 )
 
