@@ -42,6 +42,30 @@ module.exports = {
         trackingId: "UA-142404881-2",
       },
     },
+    {
+        resolve: "gatsby-source-custom-api",
+        options: {
+            url: "https://newsapi.org/v2/everything?q=dan+quinn&from=2019-09-21&sortBy=publishedAt&apiKey=baf11e36fc3949328b335beb5e088129",
+            rootKey: "articles",
+            imageKeys: ["urlToImage"],
+            schemas: {
+                articles: `
+                    source: source
+                    author: String
+                    title: String
+                    description: String
+                    url: String
+                    urlToImage: String
+                    publishedAt: String
+                    content: String
+                `,
+                source: `
+                    id: String
+                    name: String
+                `
+            }
+        }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
