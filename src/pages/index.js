@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import BackgroundImage from 'gatsby-background-image'
 import SEO from "../components/seo"
+import "./layout.css"
 
 const IndexPage = ({ data }) => (
   <BackgroundImage
