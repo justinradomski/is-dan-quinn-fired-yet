@@ -21,7 +21,9 @@ const IndexPage = ({ data }) => (
             display: `flex`,
         }}
         className={mainStyles.main}>
-      <SEO title="No." />
+      <SEO
+          title="No."
+          image="/images/social-no.jpg" />
       <div
           className={mainStyles.content}
           style={{
