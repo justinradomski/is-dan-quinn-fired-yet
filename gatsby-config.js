@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Has Dan Quinn been fired yet?`,
+    title: `Is Dan Quinn fired yet?`,
     description: `Your official home of Dan Quinn's employment status.`,
   },
   plugins: [

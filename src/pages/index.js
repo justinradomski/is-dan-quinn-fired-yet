@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => (
                 fontSize: 22,
                 fontWeight: `500`
             }}>
-            Has Dan Quinn been fired yet?
+            Is Dan Quinn fired yet?
         </h1>
         <span
             className="response"
