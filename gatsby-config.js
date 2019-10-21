@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Is Dan Quinn fired yet?`,
     description: `Your official home of Dan Quinn's employment status.`,
+    siteUrl: `https://isdanquinnfiredyet.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
