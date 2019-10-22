@@ -65,7 +65,7 @@ export const query = graphql`
   {
     danImage: file(name: {eq: "dan"}) {
       childImageSharp {
-        fluid(quality: 70) {
+        fluid(maxWidth: 420, quality: 70) {
           base64
           aspectRatio
           src
@@ -82,7 +82,7 @@ export const query = graphql`
     }
     backgroundImage: file(name: {eq: "iStock-1125030657"}) {
       childImageSharp {
-        fluid(quality: 90) {
+        fluid(maxWidth: 1920, quality: 90) {
           base64
           aspectRatio
           src
