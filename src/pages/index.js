@@ -98,6 +98,7 @@ const IndexPage = ({ data }) => (
         </section>
         <Helmet>
           <script src="https://kit.fontawesome.com/27b3dd1eef.js" crossorigin="anonymous"></script>
+          <meta name="google-site-verification" content="cNzomnTKqkaKs--c9RT96ICPH5vElugfGIQSKG_qhHw" />
         </Helmet>
     </main>
 )
