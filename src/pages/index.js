@@ -1,10 +1,16 @@
 import React from "react"
-import { Link } from "gatsby"
+import Helmet from "react-helmet"
 
 import Img from "gatsby-image"
 import BackgroundImage from 'gatsby-background-image'
 import SEO from "../components/seo"
 import "../components/layout.css"
+
+import {
+	FacebookShareButton,
+	TwitterShareButton,
+	RedditShareButton,
+} from 'react-share';
 
 import mainStyles from "../styles/main.module.scss"
 
@@ -46,6 +52,21 @@ const IndexPage = ({ data }) => (
                   No.
               </span>
           </div>
+          <div className={mainStyles.shareBox}>
+              <span className={mainStyles.shareTitle}>Share</span>
+              <ul>
+                  <li className="share-facebook">
+                      <FacebookShareButton url={data.site.siteMetadata.siteUrl} className={mainStyles.shareButton}>
+                          <i className="fab fa-fw fa-facebook-f" aria-hidden="true"></i>
+                      </FacebookShareButton>
+                  </li>
+                  <li className="share-twitter">
+                      <TwitterShareButton url={data.site.siteMetadata.siteUrl} className={mainStyles.shareButton}>
+                         <i className="fab fa-fw fa-twitter" aria-hidden="true"></i>
+                      </TwitterShareButton>
+                  </li>
+              </ul>
+          </div>
           <div className={mainStyles.danImage}>
               <Img
                   fluid={data.danImage.childImageSharp.fluid}
@@ -62,12 +83,10 @@ const IndexPage = ({ data }) => (
                     <div
                         key={'article_' + i}
                         className={mainStyles.article}>
-                        <a href={article.link} className={mainStyles.articleLink} target="_blank">
-                            <div
-                                className={mainStyles.articleImage}
-                                style={{
-                                    backgroundImage: `url(${article.image})`
-                                }}></div>
+                        <a href={article.link} className={mainStyles.articleLink} target="_blank" rel="noopener noreferrer">
+                            <Img
+                                fixed={article.image.src.childImageSharp.fixed}
+                                className={mainStyles.articleImage} />
                             <div className={mainStyles.articleContent}>
                                 <h3>{article.title}</h3>
                                 <span className={mainStyles.articleSource}>{article.source}</span>
@@ -77,6 +96,9 @@ const IndexPage = ({ data }) => (
                 ))}
             </div>
         </section>
+        <Helmet>
+          <script src="https://kit.fontawesome.com/27b3dd1eef.js" crossorigin="anonymous"></script>
+        </Helmet>
     </main>
 )
 
@@ -122,8 +144,31 @@ export const query = graphql`
       nodes {
         title
         link
-        image
+        image {
+          src {
+            childImageSharp {
+                fixed(width: 117, height: 117, quality: 70) {
+                aspectRatio
+                base64
+                height
+                originalName
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+                width
+              }
+            }
+          }
+        }
         source
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
       }
     }
   }

@@ -36,6 +36,67 @@ $mobileBreak: 767px;
     }
 }
 
+.share-box {
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+
+    @media screen and (max-width: $desktopBreak) {
+        left: 80px;
+    }
+
+    @media screen and (max-width: $mobileBreak) {
+        left: 30px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: inline-block;
+        vertical-align: middle;
+
+        @media screen and (max-width: $mobileBreak) {
+            display: block;
+            margin-left: -.25em;
+        }
+
+        li {
+            display: inline-block;
+        }
+    }
+
+    .share-button {
+        color: inherit;
+        font-size: 1.5rem;
+        padding: 0 .25em;
+        transition: .13s ease;
+        display: block;
+        outline: none;
+        cursor: pointer;
+
+        @media screen and (max-width: $mobileBreak) {
+            padding: 0;
+            margin-right: .5em;
+        }
+
+        &:hover {
+            transform: scale(1.5);
+            text-shadow: 0 6px 8px rgba(black,.25);
+        }
+    }
+
+    .share-title {
+        font-size: 1.25rem;
+        display: inline-block;
+        margin-right: .5em;
+
+        @media screen and (max-width: $mobileBreak) {
+            font-size: .875rem;
+        }
+    }
+}
+
 .dan-image {
     display: block;
     max-width: 100%;
@@ -116,12 +177,11 @@ $mobileBreak: 767px;
             margin-right: 25px;
             flex-grow: 0;
             flex-shrink: 0;
-            background-size: cover;
-            background-position: center center;
 
             @media screen and (max-width: $mobileBreak) {
                 flex-basis: 80px;
-                height: 80px;
+                width: 80px;
+                height: 80px !important;
                 margin-right: 20px;
             }
         }
