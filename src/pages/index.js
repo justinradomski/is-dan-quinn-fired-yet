@@ -9,54 +9,75 @@ import "../components/layout.css"
 import mainStyles from "../styles/main.module.scss"
 
 const IndexPage = ({ data }) => (
-    <BackgroundImage
-        Tag="section"
-        fluid={data.backgroundImage.childImageSharp.fluid}
-        style={{
-            display: `flex`,
-            minHeight: `100vh`,
-            color: `white`,
-            position: `relative`,
-            overflow: `hidden`,
-            display: `flex`,
-        }}
-        className={mainStyles.main}>
-      <SEO
-          title="No."
-          image="/images/social-no.jpg" />
-      <div
-          className={mainStyles.content}
-          style={{
-              flexBasis: `100%`,
-              textAlign: `center`
-          }}>
-          <h1
+    <main className={mainStyles.columnsWrap}>
+        <BackgroundImage
+            Tag="section"
+            fluid={data.backgroundImage.childImageSharp.fluid}
+            style={{
+                display: `flex`,
+                color: `white`,
+                overflow: `hidden`,
+            }}
+            className={mainStyles.main}>
+          <SEO
+              title="No."
+              image="/images/social-no.jpg" />
+          <div
+              className={mainStyles.content}
               style={{
-                  fontSize: 22,
-                  fontWeight: `500`
+                  flexBasis: `100%`,
+                  textAlign: `left`
               }}>
-              Is Dan Quinn fired yet?
-          </h1>
-          <span
-              className="response"
-              style={{
-                  fontSize: 100,
-                  fontWeight: `700`,
-                  display: `block`,
-                  lineHeight: 1
-              }}>
-              No.
-          </span>
-      </div>
-      <div className={mainStyles.danImage}>
-          <Img
-              fluid={data.danImage.childImageSharp.fluid}
-              style={{
-                  width: `100%`
-              }}
-              />
-      </div>
-    </BackgroundImage>
+              <h1
+                  style={{
+                      fontSize: 22,
+                      fontWeight: `500`
+                  }}>
+                  Is Dan Quinn fired yet?
+              </h1>
+              <span
+                  className="response"
+                  style={{
+                      fontSize: 100,
+                      fontWeight: `700`,
+                      display: `block`,
+                      lineHeight: 1
+                  }}>
+                  No.
+              </span>
+          </div>
+          <div className={mainStyles.danImage}>
+              <Img
+                  fluid={data.danImage.childImageSharp.fluid}
+                  style={{
+                      width: `100%`
+                  }}
+                  />
+          </div>
+        </BackgroundImage>
+        <section className={mainStyles.news}>
+            <h2 className={mainStyles.newsHeading}>Here's why...</h2>
+            <div className={mainStyles.articleList}>
+                {data.allArticlesJson.nodes.map((article,i) => (
+                    <div
+                        key={'article_' + i}
+                        className={mainStyles.article}>
+                        <a href={article.link} className={mainStyles.articleLink} target="_blank">
+                            <div
+                                className={mainStyles.articleImage}
+                                style={{
+                                    backgroundImage: `url(${article.image})`
+                                }}></div>
+                            <div className={mainStyles.articleContent}>
+                                <h3>{article.title}</h3>
+                                <span className={mainStyles.articleSource}>{article.source}</span>
+                            </div>
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </section>
+    </main>
 )
 
 export default IndexPage
@@ -65,7 +86,7 @@ export const query = graphql`
   {
     danImage: file(name: {eq: "dan"}) {
       childImageSharp {
-        fluid(maxWidth: 420, quality: 70) {
+        fluid(maxWidth: 585, quality: 70) {
           base64
           aspectRatio
           src
@@ -95,6 +116,14 @@ export const query = graphql`
           presentationWidth
           presentationHeight
         }
+      }
+    }
+    allArticlesJson {
+      nodes {
+        title
+        link
+        image
+        source
       }
     }
   }
