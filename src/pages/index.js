@@ -148,7 +148,7 @@ export const query = graphql`
         image {
           src {
             childImageSharp {
-                fixed(width: 117, height: 117, quality: 70) {
+                fixed(cropFocus: CENTER, width: 117, height: 117, quality: 70) {
                 aspectRatio
                 base64
                 height
