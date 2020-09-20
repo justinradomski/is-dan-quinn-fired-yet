@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => (
           </div>
         </BackgroundImage>
         <section className={mainStyles.news}>
-            <h2 className={mainStyles.newsHeading}>Here's why...</h2>
+            <h2 className={mainStyles.newsHeading}>Latest Dan Quinn News</h2>
             <div className={mainStyles.articleList}>
                 {data.allArticlesJson.nodes.map((article,i) => (
                     <div
