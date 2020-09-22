@@ -138,6 +138,7 @@ $mobileBreak: 767px;
     .news-heading {
         font-size: 2.25rem;
         margin: 0;
+        line-height: 1.2;
 
         @media screen and (max-width: $mobileBreak) {
             font-size: 1.75rem;
