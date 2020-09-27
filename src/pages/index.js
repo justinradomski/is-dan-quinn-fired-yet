@@ -26,8 +26,8 @@ const IndexPage = ({ data }) => (
             }}
             className={mainStyles.main}>
           <SEO
-              title="No."
-              image="/images/social-no.jpg" />
+              title="Yes!"
+              image="/images/social-yes.jpg" />
           <div
               className={mainStyles.content}
               style={{
@@ -49,7 +49,7 @@ const IndexPage = ({ data }) => (
                       display: `block`,
                       lineHeight: 1
                   }}>
-                  No.
+                  Yes!
               </span>
           </div>
           <div className={mainStyles.shareBox}>
@@ -124,7 +124,7 @@ export const query = graphql`
         }
       }
     }
-    backgroundImage: file(name: {eq: "iStock-1125030657"}) {
+    backgroundImage: file(name: {eq: "yes-bg"}) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 90) {
           base64
