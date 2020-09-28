@@ -209,6 +209,7 @@ $mobileBreak: 767px;
                 margin-top: 9px;
                 font-size: .875rem;
                 font-weight: 500;
+                opacity: .5;
 
                 @media screen and (max-width: $mobileBreak) {
                     font-size: .75rem;
