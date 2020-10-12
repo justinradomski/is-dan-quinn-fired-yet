@@ -78,7 +78,7 @@ const IndexPage = ({ data }) => (
         </BackgroundImage>
         <section className={mainStyles.news}>
 			<h2 className={mainStyles.newsHeading}>Notice</h2>
-			<p className={mainStyles.noticeText}>The information on this page is based on multiple reports that seem to confirm that Dan Quinn will be fired at some point in the coming days, but it has not been officially announced by the Atlanta Falcons.</p>
+			<p className={mainStyles.noticeText}>The Atlanta Falcons have confirmed that both Dan Quinn and General Manager Thomas Dimitroff have been relieved of their duties.</p>
             <h2 className={mainStyles.newsHeading}>Latest Dan Quinn News</h2>
             <div className={mainStyles.articleList}>
                 {data.allArticlesJson.nodes.map((article,i) => (
