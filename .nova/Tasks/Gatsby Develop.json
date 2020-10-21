@@ -1,0 +1,15 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : false,
+      "script" : "#!\/bin\/sh\nnpm install\ngatsby develop"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\nnpm install\ngatsby develop"
+    }
+  },
+  "identifier" : "5DD90CDE-5104-4FFC-8E2F-51EAE89840E7",
+  "openLogOnRun" : "start",
+  "persistent" : true
+}
